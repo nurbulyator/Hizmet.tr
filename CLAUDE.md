@@ -58,5 +58,6 @@ notifications/reminders, map/GPS, camera.
 - Every team member must be able to explain their part at the presentation,
   so prefer simple, readable code over clever code. Do not paste large chunks of code from the internet.
 - Minimal diff, no drive-by refactors.
+- On the main dev machine port 3000 is busy, so `backend/.env` uses `PORT=3100`.
 - Before saying "done": backend — `npm run lint && npm test && npm run build`;
   android — `./gradlew lint test assembleDebug`.

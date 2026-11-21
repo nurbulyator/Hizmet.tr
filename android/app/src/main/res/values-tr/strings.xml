@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Login -->
+    <string name="login_title">Telefon numarasıyla giriş</string>
+    <string name="login_subtitle">Şifre gerekmez — SMS ile kod göndereceğiz</string>
+    <string name="phone_number">TELEFON NUMARASI</string>
+    <string name="change">Değiştir</string>
+    <string name="sms_code">SMS KODU</string>
+    <string name="resend_code_in">Kodu tekrar gönder: %1$s</string>
+    <string name="resend_code">Kodu tekrar gönder</string>
+    <string name="send_code">Kod gönder</string>
+    <string name="sign_in">Giriş yap</string>
+    <string name="terms_notice">Devam ederek kullanım koşullarını kabul etmiş ve KVKK aydınlatma metnini okumuş olursunuz</string>
+    <string name="error_phone">10 haneli numara girin, örn. 532 123 45 67</string>
+    <string name="error_code">Kod yanlış. Tekrar deneyin</string>
+    <string name="demo_code_hint">Demo: kod her zaman 1234</string>
+
+    <!-- Common -->
+    <string name="error_network">Sunucuya bağlanılamadı</string>
+    <string name="retry">Tekrar dene</string>
+    <string name="back">Geri</string>
+    <string name="currency_from">%1$s\'den</string>
+    <string name="duration_h_min">%1$d sa %2$d dk</string>
+    <string name="duration_h">%1$d sa</string>
+    <string name="duration_min">%1$d dk</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Ana sayfa</string>
+    <string name="nav_catalog">Katalog</string>
+    <string name="nav_appointments">Randevular</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Catalog -->
+    <string name="city">Şehir</string>
+    <string name="all_cities">Tüm şehirler</string>
+    <string name="search_hint">Uzman veya hizmet ara</string>
+    <string name="categories">Kategoriler</string>
+    <string name="all">Tümü</string>
+    <string name="specialists">Uzmanlar</string>
+    <string name="sort_rating">Puana göre</string>
+    <string name="sort_price">Fiyata göre</string>
+    <string name="nothing_found">Sonuç bulunamadı</string>
+    <string name="notifications">Bildirimler</string>
+    <string name="notifications_soon">Bildirimler bir sonraki sürümde gelecek</string>
+    <string name="favorite">Favori</string>
+
+    <!-- Specialist profile -->
+    <string name="experience_years">%1$s · %2$d yıl deneyim</string>
+    <string name="reviews_count">%1$d yorum</string>
+    <string name="tab_services">Hizmetler</string>
+    <string name="tab_reviews">Yorumlar</string>
+    <string name="tab_about">Hakkında</string>
+    <string name="working_hours">Çalışma saatleri: %1$s</string>
+    <string name="choose_time">Saat seç</string>
+    <string name="no_reviews">Henüz yorum yok</string>
+    <string name="address">Adres</string>
+
+    <!-- Slots -->
+    <string name="slot_title">Saat seçimi</string>
+    <string name="available_times">Müsait saatler</string>
+    <string name="istanbul_time">İstanbul saati, UTC+3</string>
+    <string name="legend_free">müsait</string>
+    <string name="legend_busy">dolu</string>
+    <string name="legend_selected">seçili</string>
+    <string name="day_off">Bu gün tatil. Lütfen başka bir gün seçin</string>
+    <string name="continue_with">Devam · %1$s</string>
+    <string name="slot_taken">Bu saat az önce alındı. Lütfen başka bir saat seçin</string>
+    <string name="booking_created">Randevu gönderildi. Onay bekleniyor</string>
+
+    <!-- Appointments -->
+    <string name="my_appointments">Randevularım</string>
+    <string name="tab_upcoming">Yaklaşan</string>
+    <string name="tab_past">Geçmiş</string>
+    <string name="status_pending">Onay bekliyor</string>
+    <string name="status_confirmed">Onaylandı</string>
+    <string name="status_completed">Tamamlandı</string>
+    <string name="status_cancelled">İptal edildi</string>
+    <string name="status_rejected">Reddedildi</string>
+    <string name="cancel">İptal et</string>
+    <string name="details">Ayrıntılar</string>
+    <string name="recently_completed">SON TAMAMLANANLAR</string>
+    <string name="rate_visit">Ziyareti değerlendirin</string>
+    <string name="thanks_for_review">Yorumunuz için teşekkürler!</string>
+    <string name="no_upcoming">Yaklaşan randevunuz yok</string>
+    <string name="no_past">Henüz geçmiş randevu yok</string>
+    <string name="find_specialist">Uzman bul</string>
+    <string name="cancel_title">Randevu iptal edilsin mi?</string>
+    <string name="cancel_text">%1$s, %2$s</string>
+    <string name="yes_cancel">Evet, iptal et</string>
+    <string name="no">Hayır</string>
+
+    <!-- Home -->
+    <string name="hello">Merhaba!</string>
+    <string name="hello_subtitle">Bir sonraki randevunu birkaç dokunuşla al</string>
+    <string name="next_visit">Sıradaki randevu</string>
+    <string name="favorites">Favori uzmanlar</string>
+    <string name="no_favorites">Uzmanı buraya kaydetmek için kalbe dokunun</string>
+
+    <!-- Profile -->
+    <string name="profile">Profil</string>
+    <string name="language">Dil</string>
+    <string name="log_out">Çıkış yap</string>
+    <string name="app_version">Sürüm %1$s</string>
+</resources>

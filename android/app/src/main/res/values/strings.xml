@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Hizmet.tr</string>
+
+    <!-- Login -->
+    <string name="login_title">Sign in with phone number</string>
+    <string name="login_subtitle">No password needed — we will send you a code by SMS</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="change">Change</string>
+    <string name="sms_code">SMS CODE</string>
+    <string name="resend_code_in">Resend code: %1$s</string>
+    <string name="resend_code">Resend code</string>
+    <string name="send_code">Send code</string>
+    <string name="sign_in">Sign in</string>
+    <string name="terms_notice">By continuing you accept the terms of use and confirm that you have read the privacy notice</string>
+    <string name="error_phone">Enter a 10-digit number, e.g. 532 123 45 67</string>
+    <string name="error_code">Wrong code. Try again</string>
+    <string name="demo_code_hint">Demo: the code is always 1234</string>
+
+    <!-- Common -->
+    <string name="error_network">Could not connect to the server</string>
+    <string name="retry">Retry</string>
+    <string name="back">Back</string>
+    <string name="currency_from">from %1$s</string>
+    <string name="duration_h_min">%1$d h %2$d min</string>
+    <string name="duration_h">%1$d h</string>
+    <string name="duration_min">%1$d min</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_catalog">Catalog</string>
+    <string name="nav_appointments">Bookings</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Catalog -->
+    <string name="city">City</string>
+    <string name="all_cities">All cities</string>
+    <string name="search_hint">Search specialist or service</string>
+    <string name="categories">Categories</string>
+    <string name="all">All</string>
+    <string name="specialists">Specialists</string>
+    <string name="sort_rating">By rating</string>
+    <string name="sort_price">By price</string>
+    <string name="nothing_found">Nothing found</string>
+    <string name="notifications">Notifications</string>
+    <string name="notifications_soon">Notifications will come in the next version</string>
+    <string name="favorite">Favorite</string>
+
+    <!-- Specialist profile -->
+    <string name="experience_years">%1$s · %2$d years of experience</string>
+    <string name="reviews_count">%1$d reviews</string>
+    <string name="tab_services">Services</string>
+    <string name="tab_reviews">Reviews</string>
+    <string name="tab_about">About</string>
+    <string name="working_hours">Working hours: %1$s</string>
+    <string name="choose_time">Choose time</string>
+    <string name="no_reviews">No reviews yet</string>
+    <string name="address">Address</string>
+
+    <!-- Slots -->
+    <string name="slot_title">Choose time</string>
+    <string name="available_times">Available times</string>
+    <string name="istanbul_time">Istanbul time, UTC+3</string>
+    <string name="legend_free">free</string>
+    <string name="legend_busy">taken</string>
+    <string name="legend_selected">selected</string>
+    <string name="day_off">Day off. Please choose another day</string>
+    <string name="continue_with">Continue · %1$s</string>
+    <string name="slot_taken">This time was just taken. Please choose another one</string>
+    <string name="booking_created">Booking sent. Waiting for confirmation</string>
+
+    <!-- Appointments -->
+    <string name="my_appointments">My bookings</string>
+    <string name="tab_upcoming">Upcoming</string>
+    <string name="tab_past">Past</string>
+    <string name="status_pending">Waiting for approval</string>
+    <string name="status_confirmed">Confirmed</string>
+    <string name="status_completed">Completed</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_rejected">Rejected</string>
+    <string name="cancel">Cancel</string>
+    <string name="details">Details</string>
+    <string name="recently_completed">RECENTLY COMPLETED</string>
+    <string name="rate_visit">Rate the visit</string>
+    <string name="thanks_for_review">Thank you for your review!</string>
+    <string name="no_upcoming">You have no upcoming bookings</string>
+    <string name="no_past">No past bookings yet</string>
+    <string name="find_specialist">Find a specialist</string>
+    <string name="cancel_title">Cancel the booking?</string>
+    <string name="cancel_text">%1$s, %2$s</string>
+    <string name="yes_cancel">Yes, cancel</string>
+    <string name="no">No</string>
+
+    <!-- Home -->
+    <string name="hello">Hello!</string>
+    <string name="hello_subtitle">Book your next visit in a few taps</string>
+    <string name="next_visit">Next visit</string>
+    <string name="favorites">Favorite specialists</string>
+    <string name="no_favorites">Tap the heart on a specialist to save them here</string>
+
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="language">Language</string>
+    <string name="log_out">Log out</string>
+    <string name="app_version">Version %1$s</string>
+</resources>

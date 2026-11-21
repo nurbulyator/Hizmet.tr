@@ -1,0 +1,20 @@
+# Node / NestJS
+node_modules/
+dist/
+coverage/
+.env
+*.tsbuildinfo
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.keystore
+*.jks
+.idea/
+*.iml
+captures/
+.kotlin/
+
+# OS
+.DS_Store

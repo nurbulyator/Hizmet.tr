@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CLIENT
+  SPECIALIST
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  phone         String         @unique
+  name          String?
+  role          Role           @default(CLIENT)
+  createdAt     DateTime       @default(now())
+  bookings      Booking[]
+  reviews       Review[]
+  favorites     Favorite[]
+  refreshTokens RefreshToken[]
+}
+
+model RefreshToken {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+}
+
+model Category {
+  id          Int          @id @default(autoincrement())
+  slug        String       @unique
+  nameEn      String
+  nameTr      String
+  specialists Specialist[]
+}
+
+model Specialist {
+  id              Int            @id @default(autoincrement())
+  name            String
+  title           String
+  experienceYears Int
+  about           String
+  city            String
+  district        String
+  address         String
+  categoryId      Int
+  category        Category       @relation(fields: [categoryId], references: [id])
+  rating          Float          @default(0)
+  reviewCount     Int            @default(0)
+  avatarColor     String
+  services        Service[]
+  workingHours    WorkingHours[]
+  bookings        Booking[]
+  reviews         Review[]
+  favorites       Favorite[]
+}
+
+model Service {
+  id           Int        @id @default(autoincrement())
+  specialistId Int
+  specialist   Specialist @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  name         String
+  durationMin  Int
+  price        Int
+  bookings     Booking[]
+}
+
+// weekday: 1 = Monday ... 7 = Sunday. Times are minutes from midnight, Istanbul time.
+model WorkingHours {
+  id           Int        @id @default(autoincrement())
+  specialistId Int
+  specialist   Specialist @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  weekday      Int
+  startMinute  Int
+  endMinute    Int
+
+  @@unique([specialistId, weekday])
+}
+
+model Booking {
+  id           Int           @id @default(autoincrement())
+  clientId     Int
+  client       User          @relation(fields: [clientId], references: [id])
+  specialistId Int
+  specialist   Specialist    @relation(fields: [specialistId], references: [id])
+  serviceId    Int
+  service      Service       @relation(fields: [serviceId], references: [id])
+  startsAt     DateTime
+  endsAt       DateTime
+  price        Int
+  status       BookingStatus @default(PENDING)
+  createdAt    DateTime      @default(now())
+  review       Review?
+
+  @@index([specialistId, startsAt])
+  @@index([clientId, startsAt])
+}
+
+model Review {
+  id           Int        @id @default(autoincrement())
+  bookingId    Int        @unique
+  booking      Booking    @relation(fields: [bookingId], references: [id])
+  clientId     Int
+  client       User       @relation(fields: [clientId], references: [id])
+  specialistId Int
+  specialist   Specialist @relation(fields: [specialistId], references: [id])
+  rating       Int
+  comment      String?
+  createdAt    DateTime   @default(now())
+}
+
+model Favorite {
+  userId       Int
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialistId Int
+  specialist   Specialist @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+
+  @@id([userId, specialistId])
+}
