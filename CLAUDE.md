@@ -25,9 +25,7 @@ The Android emulator reaches the local backend at `http://10.0.2.2:3000`.
 - **Commits are authored only by the user** (their local `git config user.name/email`).
   Never add `Co-Authored-By`, "Generated with Claude" or any mention of AI —
   not in commits, PRs, or code.
-- **Never commit directly to `main`.** Each task gets its own branch from an up-to-date `main`:
-  `feat/<short-name>`, `fix/<short-name>`, `chore/<short-name>` (e.g. `feat/catalog-screen`).
-  Changes reach `main` only through a Pull Request.
+- **Commit directly to `main`.** No feature branches, no Pull Requests unless the user asks for them.
 - Commit and push only when the user explicitly asks.
 - No force push, no rewriting published history.
 - Conventional Commits with a scope: `feat(android): ...`, `feat(backend): ...`, `fix(booking): ...`.
