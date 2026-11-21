@@ -1,49 +1,64 @@
 # Hizmet.tr — CLAUDE.md
 
-Учебный проект: курс BİL 4124 «Mobil Programlama II», DEÜ, осень 2026.
-Android-приложение для онлайн-записи к мастерам (парикмахер, барбер, маникюр).
-Рапорт с исходным замыслом: `../hizmet.tr_Proje_Konusu_Belirleme_Raporu.pdf`.
+Course project for BİL 4124 "Mobil Programlama II", Dokuz Eylül University, Fall 2026.
+An Android app for booking appointments with service specialists (hairdresser, barber, manicure).
+The original plan and screen sketches are in `../hizmet.tr_Proje_Konusu_Belirleme_Raporu.pdf`.
 
-## Структура (монорепозиторий)
+## Language
+
+- **Everything in this repository is in English**: code, identifiers, comments, commit messages,
+  branch names, PR titles/descriptions, README and docs.
+  This rule overrides any global rule that asks for Russian commit messages.
+- App UI strings: English and Turkish (`values/strings.xml` + `values-tr/strings.xml`).
+
+## Structure (monorepo)
 
 ```
-android/   — клиент: Kotlin, Jetpack Compose, Material 3, ViewModel + StateFlow, Coroutines, Retrofit
-backend/   — сервер: NestJS (TypeScript strict), REST, Swagger, JWT, Prisma, PostgreSQL
+android/   — client: Kotlin, Jetpack Compose, Material 3, ViewModel + StateFlow, Coroutines, Retrofit
+backend/   — server: NestJS (TypeScript strict), REST, Swagger, JWT, Prisma, PostgreSQL
 ```
 
-Эмулятор Android ходит на локальный бэкенд по адресу `http://10.0.2.2:3000`.
+The Android emulator reaches the local backend at `http://10.0.2.2:3000`.
 
-## Git — обязательные правила
+## Git rules (mandatory)
 
-- **Коммиты только от имени пользователя** (используется его локальный `git config user.name/email`).
-  НЕ добавлять `Co-Authored-By`, «Generated with Claude», упоминания ИИ — ни в коммиты, ни в PR, ни в код.
-- **В `main` напрямую не коммитить.** Каждая задача — своя ветка от свежего `main`:
-  `feat/<кратко>`, `fix/<кратко>`, `chore/<кратко>` (например `feat/catalog-screen`).
-  В `main` попадает только через Pull Request.
-- Коммитить и пушить только по явной просьбе пользователя.
-- Не делать force push, не переписывать опубликованную историю.
-- Conventional Commits со scope: `feat(android): ...`, `feat(backend): ...`, `fix(booking): ...`.
-- Не коммитить: `.env`, `node_modules/`, `dist/`, `build/`, `.gradle/`, `local.properties`, `*.keystore`.
+- **Commits are authored only by the user** (their local `git config user.name/email`).
+  Never add `Co-Authored-By`, "Generated with Claude" or any mention of AI —
+  not in commits, PRs, or code.
+- **Never commit directly to `main`.** Each task gets its own branch from an up-to-date `main`:
+  `feat/<short-name>`, `fix/<short-name>`, `chore/<short-name>` (e.g. `feat/catalog-screen`).
+  Changes reach `main` only through a Pull Request.
+- Commit and push only when the user explicitly asks.
+- No force push, no rewriting published history.
+- Conventional Commits with a scope: `feat(android): ...`, `feat(backend): ...`, `fix(booking): ...`.
+- Never commit: `.env`, `node_modules/`, `dist/`, `build/`, `.gradle/`, `local.properties`, `*.keystore`.
 
-## Объём работ по этапам
+## Scope by stage
 
-**Этап 1 (сейчас) — клиентская часть, демо продукта:**
-вход по телефону, каталог мастеров (поиск, фильтры, сортировка), профиль мастера,
-запись на свободное время, «Мои записи» (статус, отмена). Данные мастеров — seed в БД.
+**Stage 1 (now) — client side, product demo:**
+phone login, specialist catalog (search, filters, sorting), specialist profile,
+booking a free time slot, "My appointments" (status, cancel). Specialists are seeded in the DB.
 
-**Позже:** режим мастера (услуги, рабочие часы, заявки, календарь), отзывы, избранное,
-уведомления/напоминания, карта/GPS, камера.
+**Later:** specialist mode (services, working hours, requests, calendar), reviews, favorites,
+notifications/reminders, map/GPS, camera.
 
-## Принятые упрощения (не «исправлять»)
+## Agreed simplifications (do not "fix" these)
 
-- **OTP фейковый**: SMS не отправляется, сервер принимает код `1234`, но выдаёт настоящие JWT (access + refresh).
-- **Без Redis / BullMQ / cron.** Напоминания за 24 ч и 2 ч — локально на телефоне (WorkManager), на этапе «позже».
-- **Защита от двойной записи** — exclusion constraint в PostgreSQL (raw SQL в миграции Prisma);
-  при конфликте сервер отвечает `409`, приложение предлагает выбрать другое время.
+- **Fake OTP**: no SMS is sent, the server accepts code `1234` but issues real JWTs (access + refresh).
+- **No Redis / BullMQ / cron.** Reminders 24 h and 2 h before a visit are local on the phone
+  (WorkManager), in the "later" stage.
+- **Double-booking protection** — a PostgreSQL exclusion constraint (raw SQL in a Prisma migration);
+  on conflict the server returns `409` and the app asks the user to pick another time.
 
-## Стиль работы
+## How the code should look
 
-- Код должен быть простым и понятным: каждый в команде должен уметь объяснить свою часть на защите.
-  Без лишних абстракций и «магии», без копирования больших кусков чужого кода.
-- Минимальный diff, без попутных рефакторингов.
-- Перед «готово»: backend — `npm run lint && npm test && npm run build`; android — `./gradlew lint test assembleDebug`.
+- **Follow the sketches in the report** (Figures 2–7) for screens, layout and flow.
+  Do not add screens or features that are not in the report or this file.
+- **Course level, not production level.** Use what is taught in the course
+  (ViewModel, StateFlow, lists, navigation, Room/DataStore later) and keep it plain:
+  no extra architecture layers, no DI framework, no generic helpers "for the future".
+- Every team member must be able to explain their part at the presentation,
+  so prefer simple, readable code over clever code. Do not paste large chunks of code from the internet.
+- Minimal diff, no drive-by refactors.
+- Before saying "done": backend — `npm run lint && npm test && npm run build`;
+  android — `./gradlew lint test assembleDebug`.
